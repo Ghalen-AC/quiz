@@ -6,28 +6,22 @@ let Correovalido = true;
 let resultado = nombre.trim().toLowerCase().split(" ").map((palabra) => palabra.charAt(0).toUpperCase() + palabra.slice(1)).join(" ");
 let resultado2 = correo.trim().toLowerCase();
 let resultado3 = parseInt(edad);
-
-
-let Nacimiento = 2026 - edad;
+let mayoredad = resultado3 >= 18;
+let Nacimiento = 2026 - resultado3;
 let Si = entrada_codigo_promo.split("-")[1];
 let string = String(Si);
-
+let correoValido = correo.includes("@") && correo.endsWith(".com");
+let codigoValido = entrada_codigo_promo.startsWith("DESC-") && entrada_codigo_promo.endsWith("-X");
 console.log("Nombre formateado: " + resultado);
 console.log("Correo formateado: " + resultado2);
-console.log("Tu año aproximado de nacimiento es: " + Nacimiento);
+console.log("Correo valido: " + correoValido);
+console.log("Codigo valido: " + codigoValido);
 console.log("Edad: " + resultado3);
-if (resultado3 >= 18) {
-    console.log("True");
-}
+console.log("Es mayor de edad: " + mayoredad);
+console.log("Tu año aproximado de nacimiento es: " + Nacimiento);
 if (resultado3 >= 18 && Si === "2026") {
-    console.log("10.51% de descuento");
+    console.log("10.5 puntos");
 } else {
-    console.log("0.00% de descuento");
+    console.log("0.0 puntos");
 }
-if (Si === "2026") {
-    console.log("Codigo valido");
-}
-if (correo.includes("@") && correo.includes(".com")){
-    console.log("Correo valido: True");
-}
-console.log(Si);
+console.log(string);
